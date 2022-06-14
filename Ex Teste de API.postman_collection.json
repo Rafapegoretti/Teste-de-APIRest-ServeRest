@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "65312145-ffeb-497f-a37a-acef384bb3a8",
+		"name": "Ex Teste de API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Usuários",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valida msg de sucesso\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"fulano@qa.com\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{usuarios}}",
+					"host": [
+						"{{usuarios}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista usuário especifico pelo ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valida msg de sucesso\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"marco@marco.com.br\");\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"    \"$schema\": \"https://json-schema.org/draft/2019-09/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"default\": {},\r",
+							"    \"title\": \"Root Schema\",\r",
+							"    \"required\": [\r",
+							"        \"nome\",\r",
+							"        \"email\",\r",
+							"        \"password\",\r",
+							"        \"administrador\",\r",
+							"        \"_id\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"nome\": {\r",
+							"            \"type\": \"string\",\r",
+							"            \"default\": \"\",\r",
+							"            \"title\": \"The nome Schema\",\r",
+							"            \"examples\": [\r",
+							"                \"Marco Teste\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"email\": {\r",
+							"            \"type\": \"string\",\r",
+							"            \"default\": \"\",\r",
+							"            \"title\": \"The email Schema\",\r",
+							"            \"examples\": [\r",
+							"                \"marco@marco.com.br\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"password\": {\r",
+							"            \"type\": \"string\",\r",
+							"            \"default\": \"\",\r",
+							"            \"title\": \"The password Schema\",\r",
+							"            \"examples\": [\r",
+							"                \"1234\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"administrador\": {\r",
+							"            \"type\": \"string\",\r",
+							"            \"default\": \"\",\r",
+							"            \"title\": \"The administrador Schema\",\r",
+							"            \"examples\": [\r",
+							"                \"false\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"_id\": {\r",
+							"            \"type\": \"string\",\r",
+							"            \"default\": \"\",\r",
+							"            \"title\": \"The _id Schema\",\r",
+							"            \"examples\": [\r",
+							"                \"AMWGDZsOyJtmGzB4\"\r",
+							"            ]\r",
+							"        }\r",
+							"    },\r",
+							"    \"examples\": [{\r",
+							"        \"nome\": \"Marco Teste\",\r",
+							"        \"email\": \"marco@marco.com.br\",\r",
+							"        \"password\": \"1234\",\r",
+							"        \"administrador\": \"false\",\r",
+							"        \"_id\": \"AMWGDZsOyJtmGzB4\"\r",
+							"    }]\r",
+							"}\r",
+							"\r",
+							"pm.test('Deve retornar uma resposta com Schema válido', function ()\r",
+							"{\r",
+							"var jsonData = pm.response.to.have.jsonBody(schema)\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{usuarios}}/AMWGDZsOyJtmGzB4",
+					"host": [
+						"{{usuarios}}"
+					],
+					"path": [
+						"AMWGDZsOyJtmGzB4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar usuário que não consta na base",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valida msg de sucesso\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Usuário não encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{usuarios}}/0uxuPY0cbmQasda1sa",
+					"host": [
+						"{{usuarios}}"
+					],
+					"path": [
+						"0uxuPY0cbmQasda1sa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra novo usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valida msg de sucesso\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Cadastro realizado com sucesso\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Testando o response\", () => {\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Rafa Teste\",\r\n  \"email\": \"rafa2s@rafa.com.br\",\r\n  \"password\": \"1234\",\r\n  \"administrador\": \"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{usuarios}}",
+					"host": [
+						"{{usuarios}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra usuário com um email já cadastrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valida msg de sucesso\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Este email já está sendo usado\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Marco Teste\",\r\n  \"email\": \"marco@marco.com.br\",\r\n  \"password\": \"1234\",\r\n  \"administrador\": \"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{usuarios}}",
+					"host": [
+						"{{usuarios}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualiza usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valida msg de sucesso\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Registro alterado com sucesso\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Marco Novo\",\r\n  \"email\": \"marco@novo.com\",\r\n  \"password\": \"teste321\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{usuarios}}/yhlFu6ymxtUue7sj",
+					"host": [
+						"{{usuarios}}"
+					],
+					"path": [
+						"yhlFu6ymxtUue7sj"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valida msg de sucesso\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Registro excluído com sucesso\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{usuarios}}/yhlFu6ymxtUue7sj",
+					"host": [
+						"{{usuarios}}"
+					],
+					"path": [
+						"yhlFu6ymxtUue7sj"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

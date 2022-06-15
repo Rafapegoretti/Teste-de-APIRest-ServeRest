@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "65312145-ffeb-497f-a37a-acef384bb3a8",
 		"name": "Ex Teste de API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10726563"
 	},
 	"item": [
 		{
@@ -13,7 +14,7 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Valida msg de sucesso\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"fulano@qa.com\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"Marco Teste\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -139,7 +140,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Valida msg de sucesso\", function () {\r",
+							"pm.test(\"Valida msg de usuário inexistente\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"Usuário não encontrado\");\r",
 							"});"
 						],
@@ -186,7 +187,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"nome\": \"Rafa Teste\",\r\n  \"email\": \"rafa2s@rafa.com.br\",\r\n  \"password\": \"1234\",\r\n  \"administrador\": \"false\"\r\n}",
+					"raw": "{\r\n  \"nome\": \"Rafa Teste\",\r\n  \"email\": \"rafa2saa@rafa.com.br\",\r\n  \"password\": \"1234\",\r\n  \"administrador\": \"false\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -209,7 +210,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Valida msg de sucesso\", function () {\r",
+							"pm.test(\"Valida msg de email existente\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"Este email já está sendo usado\");\r",
 							"});"
 						],
@@ -222,7 +223,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"nome\": \"Marco Teste\",\r\n  \"email\": \"marco@marco.com.br\",\r\n  \"password\": \"1234\",\r\n  \"administrador\": \"false\"\r\n}",
+					"raw": "{\r\n  \"nome\": \"Marco Teste\",\r\n  \"email\": \"marco123@marco.com.br\",\r\n  \"password\": \"1234\",\r\n  \"administrador\": \"false\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -258,7 +259,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"nome\": \"Marco Novo\",\r\n  \"email\": \"marco@novo.com\",\r\n  \"password\": \"teste321\",\r\n  \"administrador\": \"true\"\r\n}",
+					"raw": "{\r\n  \"nome\": \"Marco Novo NOVO\",\r\n  \"email\": \"marco@novonovo.com\",\r\n  \"password\": \"teste321\",\r\n  \"administrador\": \"true\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -266,12 +267,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{usuarios}}/yhlFu6ymxtUue7sj",
+					"raw": "{{usuarios}}/ThFJubmRkfhvvtkE",
 					"host": [
 						"{{usuarios}}"
 					],
 					"path": [
-						"yhlFu6ymxtUue7sj"
+						"ThFJubmRkfhvvtkE"
 					]
 				}
 			},
@@ -296,12 +297,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{usuarios}}/yhlFu6ymxtUue7sj",
+					"raw": "{{usuarios}}/wLF5HTwODTTufIp5",
 					"host": [
 						"{{usuarios}}"
 					],
 					"path": [
-						"yhlFu6ymxtUue7sj"
+						"wLF5HTwODTTufIp5"
 					]
 				}
 			},
